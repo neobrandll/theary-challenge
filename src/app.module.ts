@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { configValidationSchema } from './config.schema';
+import { TreeModule } from './tree/tree.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { configValidationSchema } from './config.schema';
         database: configService.get<string>('DB_DATABASE'),
       }),
     }),
+    TreeModule,
   ],
   controllers: [AppController],
   providers: [AppService],
