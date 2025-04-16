@@ -18,7 +18,7 @@ export class Tree {
     onDelete: 'CASCADE',
     nullable: true,
   })
-  parent: Tree;
+  parent?: Tree;
 
   @OneToMany(() => Tree, (tree) => tree.parent, { cascade: true })
   children: Tree[];

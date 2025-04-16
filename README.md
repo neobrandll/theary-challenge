@@ -31,28 +31,23 @@ A [Nest](https://github.com/nestjs/nest) project built for the challenge
 
 ## Project setup
 
-Create a .env.stage.dev file in the root directory
+- Create a .env.stage.dev file in the root directory
 
-Copy the contents of .env.example into it
-
+- Copy the contents of .env.example into it
 
 ## Compile and run the project
 
 ```bash
-$ docker-compose up --build
+$ docker-compose up --build app
 ```
 
 ## Run tests
 
 ```bash
 # unit tests
-$ pnpm run test
+$ docker-compose run --rm test
 
 # e2e tests
-$ pnpm run test:e2e
+$ docker-compose run --rm test:e2e
 
-# test coverage
-$ pnpm run test:cov
 ```
-
-

@@ -17,6 +17,34 @@ services:
     env_file:
       - .env.stage.dev
 
+  test:
+    build: .
+    command: pnpm test
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    depends_on:
+      - postgres
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/mydb
+      - STAGE=dev
+    env_file:
+      - .env.stage.dev
+  
+  test-e2e:
+    build: .
+    command: pnpm run test:e2e
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    depends_on:
+      - postgres
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/mydb
+      - STAGE=dev
+    env_file:
+      - .env.stage.dev
+
   postgres:
     image: postgres:15
     container_name: postgres
