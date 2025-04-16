@@ -9,12 +9,15 @@ import {
 @Entity()
 export class Tree {
   @PrimaryGeneratedColumn()
-  id: string;
+  id: number;
 
   @Column()
   label: string;
 
-  @ManyToOne(() => Tree, (tree) => tree.children, { onDelete: 'CASCADE' })
+  @ManyToOne(() => Tree, (tree) => tree.children, {
+    onDelete: 'CASCADE',
+    nullable: true,
+  })
   parent: Tree;
 
   @OneToMany(() => Tree, (tree) => tree.parent, { cascade: true })

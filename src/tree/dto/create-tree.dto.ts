@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty, IsNumber } from 'class-validator';
 
-export class CreateTaskDto {
+export class CreateTreeDto {
   @ApiProperty({ required: true })
   @IsNotEmpty()
   label: string;
