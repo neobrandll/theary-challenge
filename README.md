@@ -51,3 +51,8 @@ $ docker-compose run --rm test
 $ docker-compose run --rm test:e2e
 
 ```
+
+## API Documentation
+Once the app is running, Swagger will be available at:
+
+👉 http://localhost:3000/api
