@@ -6,6 +6,9 @@ services:
     container_name: theary_app
     ports:
       - '3000:3000'
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
     depends_on:
       - postgres
     environment:

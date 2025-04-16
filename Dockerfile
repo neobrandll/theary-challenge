@@ -1,4 +1,4 @@
-FROM node:18
+FROM node:22
 
 RUN npm install -g pnpm
 
@@ -15,4 +15,4 @@ RUN pnpm build
 
 EXPOSE 3000
 
-CMD ["pnpm", "start:prod"]
+CMD ["pnpm", "start:dev"]
