@@ -1,6 +1,4 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { configValidationSchema } from './config.schema';
@@ -28,7 +26,5 @@ import { TreeModule } from './tree/tree.module';
     }),
     TreeModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
 })
 export class AppModule {}

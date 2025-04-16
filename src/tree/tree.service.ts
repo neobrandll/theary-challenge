@@ -20,10 +20,17 @@ export class TreeService {
 
   async createTree(createTreeDto: CreateTreeDto): Promise<Tree> {
     const { label, parentId } = createTreeDto;
-    const parent = await this.treeRepository.findOneBy({ id: parentId });
-    if (!parent) throw new BadRequestException('Parent not found');
+    let body: Partial<Tree> = { label };
 
-    const newTree = this.treeRepository.create({ label, parent });
+    if (parentId) {
+      const parent = await this.treeRepository.findOneBy({ id: parentId });
+      if (!parent) {
+        throw new BadRequestException('Parent not found');
+      }
+      body.parent = parent;
+    }
+
+    const newTree = this.treeRepository.create(body);
     return this.treeRepository.save(newTree);
   }
 }
