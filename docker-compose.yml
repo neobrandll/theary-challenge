@@ -10,8 +10,9 @@ services:
       - postgres
     environment:
       - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/mydb
+      - STAGE=dev
     env_file:
-      - .env
+      - .env.stage.dev
 
   postgres:
     image: postgres:15
