@@ -6,7 +6,7 @@ export class CreateTreeDto {
   @IsNotEmpty()
   label: string;
 
-  @ApiProperty({ required: false })
+  @ApiProperty({ required: false, example: 1 })
   @IsOptional()
   @IsNumber()
   parentId?: number;

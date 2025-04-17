@@ -16,6 +16,7 @@ export class TreeController {
   @ApiBody({
     description:
       'Creates a new tree node. If this is the first node in the database, please omit the parentId field, as no parent nodes will exist yet.',
+    type: CreateTreeDto,
     examples: {
       root: {
         summary: 'Create root tree',
