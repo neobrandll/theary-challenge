@@ -9,5 +9,5 @@ export class CreateTreeDto {
   @ApiProperty({ required: false })
   @IsOptional()
   @IsNumber()
-  parentId: number;
+  parentId?: number;
 }
